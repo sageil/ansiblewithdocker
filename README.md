@@ -1,5 +1,5 @@
 # Create ansible Infrastructure with docker using Ubuntu
-Prerequisites: Docker on WSL2 
+Prerequisites: Docker, Ansible on Windows 10+ WSL2 or Linux with Ansible and Docker insatlled 
 
 To insatll WSL, please follow Microsoft guide at https://docs.microsoft.com/en-us/windows/wsl/install
 
@@ -7,12 +7,22 @@ Docker Instruction can be found here:
 `curl -fsSL https://get.docker.com -o get-docker.sh
  sudo sh get-docker.sh`
  
- ## Using createinfra.sh:
+ ## Using createinfra.sh on Windows and WSL:
  1. Ensure the script has execution permission set for the user. if it's not set, set it using `sudo chmod u+x createinfra.sh`
- 2. To create the infrastructure, run ./createinfra.sh -create x where x is the number of containers you want created
- 3. After creating the infrastructure, the script will create a playbooks directory with the inventory file `inventory`
- 4. to verify the created invenory, run `ansible all -i playbooks/inventory -m ping`
- 5. To delete the created inventory and start fresh, run `./createinfra.sh -delete` the delete the playbooks directory using `rm -rf playbooks`
+ 2. Install Ansible on WSL using `sudo apt get install ansible`
+ 3. To create the infrastructure, run ./createinfra.sh -create x where x is the number of containers you want created
+ 4. After creating the infrastructure, the script will create a playbooks directory with the inventory file `inventory`
+ 5. To verify the created invenory, run `ansible all -i playbooks/inventory -m ping`
+ 6. To delete the created inventory and start fresh, run `./createinfra.sh -delete` the delete the playbooks directory using `rm -rf playbooks`
+
+## using createinfra.sh on Linux:
+1. Install Ansible 
+2. Install docker 
+3. clone the repo 
+4. Set execution permission on createinfra.sh `sudo chmod u+x createinfra.sh`
+5. Excute the script and create containers using `./createingfra.sh -create 5` 
+
+#Note: This script assumes the logged in user is a member of the docker group. to add the user, use `sudo usermod -aG docker $USER`
 
 To run the one or more of the containers manually, run the following
 
