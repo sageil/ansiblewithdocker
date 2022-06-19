@@ -7,20 +7,24 @@ Docker Instruction can be found here:
 `curl -fsSL https://get.docker.com -o get-docker.sh
  sudo sh get-docker.sh`
  
- ## Using createinfra.sh on Windows and WSL:
- 1. Ensure the script has execution permission set for the user. if it's not set, set it using `sudo chmod u+x createinfra.sh`
- 2. Install Ansible on WSL using `sudo apt get install ansible`
- 3. To create the infrastructure, run ./createinfra.sh -create x where x is the number of containers you want created
- 4. After creating the infrastructure, the script will create a playbooks directory with the inventory file `inventory`
- 5. To verify the created invenory, run `ansible all -i playbooks/inventory -m ping`
- 6. To delete the created inventory and start fresh, run `./createinfra.sh -delete` the delete the playbooks directory using `rm -rf playbooks`
+ ## Using createinfra.sh on Windows and WSL (Ubuntu 20.4 is used here):
+ 1. Clone the repo
+ 2. Ensure the script has execution permission set for the user. if it's not set, set it using `sudo chmod u+x createinfra.sh`
+ 3. Install Ansible on WSL using `sudo apt get install ansible`
+ 4. Install docker
+ 5. Add the logged in user to the docker group using `sudo usermod -aG docker $USER`
+ 6. To create the infrastructure, run ./createinfra.sh -create x where x is the number of containers you want created
+ 7. After creating the infrastructure, the script will create a playbooks directory with the inventory file `inventory`
+ 8. To verify the created invenory, run `ansible all -i playbooks/inventory -m ping`
+ 9. To delete the created inventory and start fresh, run `./createinfra.sh -delete` the delete the playbooks directory using `rm -rf playbooks`
 
 ## using createinfra.sh on Linux:
 1. Install Ansible 
 2. Install docker 
-3. clone the repo 
-4. Set execution permission on createinfra.sh `sudo chmod u+x createinfra.sh`
-5. Excute the script and create containers using `./createingfra.sh -create 5` 
+3. add the current logged user to docker group `sudo usermod -aG docker $USER`
+4. clone the repo 
+5. Set execution permission on createinfra.sh `sudo chmod u+x createinfra.sh`
+6. Excute the script and create containers using `./createingfra.sh -create 5` 
 
 #Note: This script assumes the logged in user is a member of the docker group. to add the user, use `sudo usermod -aG docker $USER`
 
