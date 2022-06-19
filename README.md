@@ -15,3 +15,4 @@ To run the one or more of the containers manually, run the following
 
 `docker run -rm -tid --cap-add NET_ADMIN --cap-add SYS_ADMIN --publish-all=true -v /srv/data:/srv/html -v /sys/fs/cgroup:/sys/fs/cgroup:ro --name {REPLACE_WITH_CONTAINER_NAME} -h {REPLACE_WITH_CONTAINER_NAME} sageil/ansible-env`
 
+![image](https://user-images.githubusercontent.com/67704508/174484289-682b2547-858a-451d-a3bc-24db20c1adc9.png)
