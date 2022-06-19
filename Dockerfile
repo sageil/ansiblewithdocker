@@ -27,4 +27,3 @@ VOLUME [ "/sys/fs/cgroup" ]
 
 ENTRYPOINT ["/lib/systemd/systemd"]
 
-#docker run -rm -tid --cap-add NET_ADMIN --cap-add SYS_ADMIN --publish-all=true -v /srv/data:/srv/html -v /sys/fs/cgroup:/sys/fs/cgroup:ro --name ansible-env1 -h ansible-env1 ansible-env
