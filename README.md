@@ -8,7 +8,7 @@ Docker Instruction can be found here:
  sudo sh get-docker.sh`
  
  ## Using createinfra.sh on Windows and WSL (Ubuntu 20.4 is used here):
- 1. Clone the repo
+ 1. Clone the repo `git clone https://github.com/sageil/ansiblewithdocker.git`
  2. Ensure the script has execution permission set for the user. if it's not set, set it using `sudo chmod u+x createinfra.sh`
  3. Install Ansible on WSL using `sudo apt get install ansible`
  4. Install docker
@@ -22,7 +22,7 @@ Docker Instruction can be found here:
 1. Install Ansible 
 2. Install docker 
 3. add the current logged user to docker group `sudo usermod -aG docker $USER`
-4. clone the repo 
+4. clone the repo `git clone https://github.com/sageil/ansiblewithdocker.git`
 5. Set execution permission on createinfra.sh `sudo chmod u+x createinfra.sh`
 6. Excute the script and create containers using `./createingfra.sh -create 5` 
 
